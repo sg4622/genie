@@ -978,9 +978,12 @@
         .duplicate-warning {
             margin-top: 16px;
             padding: 16px;
-            background: #FEF3C7;
-            border: 1px solid #F59E0B;
+            background: #ffd9d9;
+            border: none; /* remove the hard border */
             border-radius: 12px;
+        
+            box-shadow: 0 0 12px rgba(214, 40, 40, 0.6),
+                        0 0 20px rgba(214, 40, 40, 0.3); /* layered glow */
         }
 
         .duplicate-header {
