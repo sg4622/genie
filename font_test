@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Font Test</title>
+<style>
+@font-face {
+    font-family: 'GTAmerica';
+    src: url('./gt-america-standard-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'GTAmerica', sans-serif;
+    font-size: 24px;
+    margin: 40px;
+}
+</style>
+</head>
+<body>
+<p>If you see this text in GTAmerica, the font works!</p>
+</body>
+</html>
