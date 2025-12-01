@@ -1091,7 +1091,14 @@
             background-color: transparent;
             border: none;  
         }
-        
+
+        /* plus in the middle */
+        .style-slot .plus {
+            color: var(--text);
+            font-size: 24px;
+            pointer-events: none; /* clicks still go to slot */
+        }
+                
         .style-slot img {
             width: 100%;
             height: 100%;
@@ -1385,36 +1392,36 @@
                                 create an outfit using this item
                             </p>
                         
-                            <div class="style-it-templates">
-                                <!-- Template 1 -->
-                                <div class="card style-template">
-                                    <div class="slot-row">
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                    </div>
+                        <div class="style-it-templates">
+                        
+                            <!-- Template 1 -->
+                            <div class="card style-template">
+                                <div class="slot-row">
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
                                 </div>
-                            
-                                <!-- Template 2 -->
-                                <div class="card style-template">
-                                    <div class="slot-row">
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                    </div>
-                                </div>
-                            
-                                <!-- Template 3 -->
-                                <div class="card style-template">
-                                    <div class="slot-row">
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                        <div class="style-slot"></div>
-                                    </div>
-                                </div>
-                            
                             </div>
-
+                        
+                            <!-- Template 2 -->
+                            <div class="card style-template">
+                                <div class="slot-row">
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                </div>
+                            </div>
+                        
+                            <!-- Template 3 -->
+                            <div class="card style-template">
+                                <div class="slot-row">
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                    <div class="style-slot"><span class="plus">+</span></div>
+                                </div>
+                            </div>
+                        
+                        </div>
 
                         <div class="card">
                             <h3 class="card-title" style="margin-bottom: 12px;">Select from Wardrobe</h3>
@@ -1620,6 +1627,7 @@
             renderOutfits();
             renderShopWardrobe();
             renderModalWardrobe();
+            initializeStyleIt();
         }
 
         function renderWardrobeGrid() {
@@ -1833,17 +1841,19 @@
         function initializeStyleIt() {
             let activeSlot = null;
         
-            // click a slot → select it
-            document.querySelectorAll('.style-slot').forEach(slot => {
-                slot.addEventListener('click', () => {
-                    // deselect previous
-                    if (activeSlot) {
-                        activeSlot.classList.remove('selected');
-                    }
-                    // select this slot
-                    activeSlot = slot;
-                    activeSlot.classList.add('selected');
-                });
+            const container = document.querySelector('.style-it-templates');
+        
+            // click on any slot
+            container.addEventListener('click', (e) => {
+                const slot = e.target.closest('.style-slot');
+                if (!slot) return;
+        
+                // deselect previous
+                if (activeSlot) activeSlot.classList.remove('selected');
+        
+                // select this slot
+                activeSlot = slot;
+                activeSlot.classList.add('selected');
             });
         
             // click wardrobe item → fill active slot
@@ -1851,7 +1861,7 @@
                 img.addEventListener('click', () => {
                     if (!activeSlot) return;
         
-                    activeSlot.innerHTML = "";       // clear slot
+                    activeSlot.innerHTML = "";
                     activeSlot.classList.add("filled");
                     activeSlot.classList.remove("selected");
         
@@ -1859,10 +1869,12 @@
                     newImg.src = img.src;
                     activeSlot.appendChild(newImg);
         
-                    activeSlot = null;               // reset selection
+                    activeSlot = null;
                 });
             });
         }
+        
+        // call this from your existing init function
 
         window.addEventListener('load', init);
 
