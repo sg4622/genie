@@ -29,8 +29,16 @@
         }
 
         @font-face {
-            font-family: 'GTAmerica';
+            font-family: 'GTAmerica-wide';
             src: url('./gt-america-expanded-regular.woff2') format('woff2');
+            ≈
+            font-style: normal;
+            font-display: swap;
+        }
+
+            @font-face {
+            font-family: 'GTAmerica';
+            src: url('./gt-america-standard-regular.woff2') format('woff2');
             ≈
             font-style: normal;
             font-display: swap;
@@ -154,6 +162,7 @@
         }
 
         .header h1 {
+            font-family: 'GTAmerica', -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
             font-size: 20px;
             font-weight: 600;
             color: white;
@@ -908,11 +917,11 @@
         }
 
         .outfit-label.date {
-            background: #E53E3E;
+            background: var(--genie-blue-light);
         }
 
         .outfit-label.casual {
-            background: #38A169;
+            background: #D9E7FA;
         }
 
         .outfit-items {
