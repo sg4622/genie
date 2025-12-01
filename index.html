@@ -1795,7 +1795,37 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
+        function initializeStyleIt() {
+            let activeSlot = null;
+        
+            // click slot → activate it
+            document.querySelectorAll('.style-slot').forEach(slot => {
+                slot.addEventListener('click', () => {
+                    activeSlot = slot;
+                });
+            });
+        
+            // click wardrobe item → fill active slot
+            document.querySelectorAll('.wardrobe-item img').forEach(img => {
+                img.addEventListener('click', () => {
+                    if (!activeSlot) return;
+        
+                    activeSlot.innerHTML = "";
+                    activeSlot.classList.add("filled");
+        
+                    const newImg = document.createElement("img");
+                    newImg.src = img.src;
+                    activeSlot.appendChild(newImg);
+        
+                    activeSlot = null;
+                });
+            });
+        }
+
+
         window.addEventListener('load', init);
+
+        
     </script>
 </body>
 </html>
