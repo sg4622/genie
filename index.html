@@ -1842,7 +1842,7 @@
             let activeSlot = null;
         
             const container = document.querySelector('.style-it-templates');
-            if (!container) return; // exit if container doesn't exist yet
+            if (!container) return;
         
             container.addEventListener('click', (e) => {
                 const slot = e.target.closest('.style-slot');
@@ -1859,7 +1859,10 @@
                 img.addEventListener('click', () => {
                     if (!activeSlot) return;
         
-                    activeSlot.innerHTML = "";
+                    // only remove the plus, not everything
+                    const plus = activeSlot.querySelector('.plus');
+                    if (plus) plus.remove();
+        
                     activeSlot.classList.add("filled");
                     activeSlot.classList.remove("selected");
         
