@@ -1842,22 +1842,20 @@
             let activeSlot = null;
         
             const container = document.querySelector('.style-it-templates');
+            if (!container) return; // exit if container doesn't exist yet
         
-            // click on any slot
             container.addEventListener('click', (e) => {
                 const slot = e.target.closest('.style-slot');
-                if (!slot) return;
+                if (!slot || slot.classList.contains('filled')) return;
         
-                // deselect previous
                 if (activeSlot) activeSlot.classList.remove('selected');
         
-                // select this slot
                 activeSlot = slot;
                 activeSlot.classList.add('selected');
             });
         
-            // click wardrobe item → fill active slot
-            document.querySelectorAll('.wardrobe-item img').forEach(img => {
+            const wardrobeImages = document.querySelectorAll('.wardrobe-item img');
+            wardrobeImages.forEach(img => {
                 img.addEventListener('click', () => {
                     if (!activeSlot) return;
         
@@ -1873,8 +1871,6 @@
                 });
             });
         }
-        
-        // call this from your existing init function
 
         window.addEventListener('load', init);
 
