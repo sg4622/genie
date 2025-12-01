@@ -14,18 +14,14 @@
 
         :root {
             --genie-blue: #1C0AB2;
-            --genie-blue-light: #1C0AB2;
-            --genie-blue-dark: #1C0AB2;
-            --genie-gold: #D4AF37;
-            --genie-gold-light: #F0D78C;
-            --genie-gold-dark: #B8941F;
+            --genie-blue-light: #6C6AC9;
             --white: #FFFFFF;
             --off-white: #F7FAFC;
             --light-gray: #EDF2F7;
             --text: #000000;
             --border: #E2E8F0;
             --primary: var(--genie-blue);
-            --accent: var(--genie-gold);
+            --accent: var(--genie-blue-light);
             --success: #000000;
             --warning: #D69E2E;
             --danger: #D69E2E;
@@ -183,19 +179,19 @@
         }
 
         .icon-btn:hover {
-            background: var(--genie-gold);
-            color: var(--genie-blue-dark);
+            background: var(--genie-blue-light);
+            color: var(--genie-blue);
         }
 
         /* Streak Banner */
         .streak-banner {
-            background: linear-gradient(135deg, var(--genie-gold) 0%, var(--genie-gold-dark) 100%);
+            background: var(--genie-blue-light);
             padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            color: var(--genie-blue-dark);
+            color: var(--genie-blue);
         }
 
         .streak-flame {
@@ -269,7 +265,7 @@
         }
 
         .card:hover {
-            border-color: var(--genie-gold);
+            border-color: var(--genie-blue-light);
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
         }
 
@@ -288,7 +284,7 @@
 
         .card-action {
             font-size: 14px;
-            color: var(--genie-gold-dark);
+            color: var(--genie-blue-light);
             background: none;
             border: none;
             cursor: pointer;
@@ -308,7 +304,7 @@
         }
 
         .upload-area:hover {
-            border-color: var(--genie-gold);
+            border-color: var(--genie-blue-light);
             background: white;
         }
 
@@ -334,7 +330,7 @@
         .ai-analysis {
             margin-top: 16px;
             padding: 16px;
-            background: linear-gradient(135deg, var(--genie-blue) 0%, var(--genie-blue-light) 100%);
+            background: var(--genie-blue);
             border-radius: 12px;
             color: white;
         }
@@ -349,8 +345,8 @@
         }
 
         .ai-badge {
-            background: var(--genie-gold);
-            color: var(--genie-blue-dark);
+            background: var(--genie-blue-light);
+            color: var(--genie-blue);
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 10px;
@@ -375,7 +371,7 @@
 
         .confidence-fill {
             height: 100%;
-            background: var(--genie-gold);
+            background: var(--genie-blue-light);
             width: 92%;
         }
 
@@ -458,8 +454,8 @@
         }
 
         .item-action-btn.in-wardrobe {
-            background: var(--genie-gold);
-            color: var(--genie-blue-dark);
+            background: var(--genie-blue-light);
+            color: var(--genie-blue);
         }
 
         .add-more-btn {
@@ -553,7 +549,7 @@
         }
 
         .modal-item:hover {
-            border-color: var(--genie-gold);
+            border-color: var(--genie-blue-light);
         }
 
         .modal-item img {
@@ -605,7 +601,7 @@
         }
 
         .wardrobe-item:hover {
-            border-color: var(--genie-gold);
+            border-color: var(--genie-blue-light);
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
         }
 
@@ -646,7 +642,7 @@
         }
 
         .stat-card.highlight {
-            background: linear-gradient(135deg, var(--genie-blue) 0%, var(--genie-blue-light) 100%);
+            background: var(--genie-blue);
             border: none;
             color: white;
         }
@@ -689,7 +685,7 @@
 
         .bar {
             width: 60px;
-            background: linear-gradient(180deg, var(--genie-gold) 0%, var(--genie-gold-dark) 100%);
+            background: linear-gradient(180deg, var(--genie-blue-light) 0%, var(--genie-blue-light) 100%);
             border-radius: 8px 8px 0 0;
             display: flex;
             flex-direction: column;
@@ -747,8 +743,8 @@
         .most-worn-rank {
             width: 24px;
             height: 24px;
-            background: var(--genie-gold);
-            color: var(--genie-blue-dark);
+            background: var(--genie-blue-light);
+            color: var(--genie-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -844,7 +840,7 @@
         }
 
         .nav-item.active {
-            color: var(--genie-gold-dark);
+            color: var(--genie-blue-light);
         }
 
         .nav-icon {
@@ -858,7 +854,7 @@
         }
 
         .nav-item.active .nav-label {
-            color: var(--genie-gold-dark);
+            color: var(--genie-blue-light);
             font-weight: 600;
         }
 
@@ -1068,7 +1064,7 @@
             align-items: center;
             justify-content: center;
         
-            color: #FFFFFF;              
+            color: var(--white);              
             font-size: 40px;
             margin: 0 auto 20px;
         }
