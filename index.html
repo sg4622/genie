@@ -1120,20 +1120,15 @@
                 <div class="header-content">
                     <h1 id="headerTitle">Daily Outfit</h1>
                     <div class="header-actions">
-                        <button class="icon-btn" onclick="shareContent()">📤</button>
-                        <button class="icon-btn" onclick="openNotifications()">🔔</button>
-                        <button class="icon-btn" onclick="openProfile()">👤</button>
+                        <button class="icon-btn" onclick="shareContent()">
+                            <i class="ti ti-share"></i>
+                        </button>
+                        <button class="icon-btn" onclick="openNotifications()">
+                            <i class="ti ti-bell"></i>
+                        </button>
                     </div>
                 </div>
             </header>
-
-            <!-- Streak Banner -->
-            <div class="streak-banner" id="streakBanner">
-                <div class="streak-info">
-                    <div class="streak-count">89</div>
-                    <div class="streak-label">Day Streak</div>
-                </div>
-            </div>
 
 
             <!-- Main Content -->
@@ -1606,8 +1601,8 @@
 
         function renderDonateList() {
             const donateItems = [
-                { ...wardrobeItems[9], reason: 'Only worn 8 times in 3 months' },
-                { ...wardrobeItems[7], reason: 'Only worn 15 times this season' }
+                { ...wardrobeItems[9], reason: 'Only worn 1 time in 3 months' },
+                { ...wardrobeItems[7], reason: 'Only worn 2 times in 3 months' }
             ];
             
             document.getElementById('donateList').innerHTML = donateItems.map(item => `
