@@ -262,8 +262,8 @@
         /* Cards */
         .card {
             background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            border: 1px solid var(--gray);
+            border-radius: 10px;
             padding: 16px;
             margin-bottom: 16px;
             transition: all 0.3s ease;
@@ -271,7 +271,9 @@
 
         .card:hover {
             border-color: var(--genie-blue-light);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 12px rgba(108, 106, 201, 0.55),
+                        0 0 20px rgba(28, 10, 178, 0.35);
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
         .card-header {
@@ -574,11 +576,11 @@
 
         .tag {
             padding: 6px 14px;
-            background: var(--off-white);
+            background: var(--light-gray);
             border: 1px solid var(--border);
             border-radius: 20px;
             font-size: 12px;
-            color: var(--gray);
+            color: var(--light-gray);
             cursor: pointer;
             transition: all 0.2s;
         }
