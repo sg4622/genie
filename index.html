@@ -1063,6 +1063,12 @@
             transform: scale(1.02);
         }
 
+        .slot-row {
+            display: flex;            
+            gap: 12px;                
+            margin-bottom: 16px;      
+        }
+        
         .style-slot {
             width: 80px;
             height: 80px;
@@ -1070,25 +1076,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid transparent;   /* default no border */
             border-radius: 8px;
             cursor: pointer;
             position: relative;
+            transition: border 0.2s;
+        }
+        
+        .style-slot.selected {
+            border: 2px solid var(--text);  /* border shows selection */
         }
         
         .style-slot.filled {
             background-color: transparent;
+            border: none;  
         }
         
-        .plus-btn {
-            background-color: var(--gray);
-            color: white;
-            border: none;
-            font-size: 24px;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
+        .style-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
+
 
 
         /* Success Screen */
@@ -1379,31 +1389,32 @@
                                 <!-- Template 1 -->
                                 <div class="card style-template">
                                     <div class="slot-row">
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
                                     </div>
                                 </div>
                             
                                 <!-- Template 2 -->
                                 <div class="card style-template">
                                     <div class="slot-row">
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
                                     </div>
                                 </div>
                             
                                 <!-- Template 3 -->
                                 <div class="card style-template">
                                     <div class="slot-row">
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
-                                        <div class="style-slot"><button class="plus-btn">+</button></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
+                                        <div class="style-slot"></div>
                                     </div>
                                 </div>
                             
                             </div>
+
 
                         <div class="card">
                             <h3 class="card-title" style="margin-bottom: 12px;">Select from Wardrobe</h3>
@@ -1822,10 +1833,16 @@
         function initializeStyleIt() {
             let activeSlot = null;
         
-            // click slot → activate it
+            // click a slot → select it
             document.querySelectorAll('.style-slot').forEach(slot => {
                 slot.addEventListener('click', () => {
+                    // deselect previous
+                    if (activeSlot) {
+                        activeSlot.classList.remove('selected');
+                    }
+                    // select this slot
                     activeSlot = slot;
+                    activeSlot.classList.add('selected');
                 });
             });
         
@@ -1834,18 +1851,18 @@
                 img.addEventListener('click', () => {
                     if (!activeSlot) return;
         
-                    activeSlot.innerHTML = "";
+                    activeSlot.innerHTML = "";       // clear slot
                     activeSlot.classList.add("filled");
+                    activeSlot.classList.remove("selected");
         
                     const newImg = document.createElement("img");
                     newImg.src = img.src;
                     activeSlot.appendChild(newImg);
         
-                    activeSlot = null;
+                    activeSlot = null;               // reset selection
                 });
             });
         }
-
 
         window.addEventListener('load', init);
 
