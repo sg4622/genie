@@ -576,11 +576,11 @@
 
         .tag {
             padding: 6px 14px;
-            background: var(--light-gray);
-            border: 1px solid var(--border);
+            background: var(--border);       /* new background */
+            border: none;                    /* border removed */
             border-radius: 20px;
             font-size: 12px;
-            color: var(--light-gray);
+            color: var(--text);              /* fix: readable text */
             cursor: pointer;
             transition: all 0.2s;
         }
